@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { direction: rtl; }
+  body {
+    @apply bg-bg text-text font-ar antialiased;
+    margin: 0;
+  }
+  html[lang="en"] { direction: ltr; }
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-bg rounded-sm;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center h-11 px-6 rounded-md
+           bg-primary text-white font-medium
+           hover:bg-primary-dark transition-colors
+           disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center h-11 px-6 rounded-md
+           bg-primary-soft text-primary font-medium
+           hover:bg-primary/10 transition-colors
+           disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center h-11 px-6 rounded-md
+           text-text hover:bg-border/50 transition-colors
+           disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center h-11 px-6 rounded-md
+           bg-danger text-white font-medium
+           hover:opacity-90 transition-colors
+           disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .input {
+    @apply w-full h-11 px-4 rounded-sm bg-surface border border-border
+           text-text placeholder:text-text/40
+           focus:ring-2 focus:ring-primary focus:border-primary
+           transition-colors;
+  }
+  .card {
+    @apply bg-surface border border-border rounded-md p-6 shadow-sm;
+  }
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-xs text-caption font-medium;
+  }
+}
